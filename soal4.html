@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pengecekan Bilangan Ganjil atau Genap</title>
+</head>
+<body>
+    <h1>Pengecekan Bilangan Ganjil atau Genap</h1>
+    <p>Masukkan bilangan:</p>
+    <input type="text" id="bilangan" placeholder="Masukkan bilangan">
+    <button onclick="cekGanjilGenap()">Cek</button>
+    <p id="hasil"></p>
+
+    <script>
+        function cekGanjilGenap() {
+            var bilangan = parseInt(document.getElementById("bilangan").value);
+
+            if (isNaN(bilangan)) {
+                alert("Masukkan bilangan angka ");
+            } else {
+                if (bilangan % 2 === 0) {
+                    document.getElementById("hasil").textContent = "Bilangan " + bilangan + " adalah bilangan genap.";
+                } else {
+                    document.getElementById("hasil").textContent = "Bilangan " + bilangan + " adalah bilangan ganjil.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

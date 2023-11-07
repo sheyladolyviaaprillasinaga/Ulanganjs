@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perhitungan Menghitung Luas Segitiga</title>
+</head>
+<body>
+    <h2>Perhitungan Menghitung Luas Segitiga</h2>
+    <form>
+        <label for="alas">Alas:</label>
+        <input type="number" id="alas" name="alas"><br><br>
+
+        <label for="tinggi">Tinggi:</label>
+        <input type="number" id="tinggi" name="tinggi"><br><br>
+
+        <input type="button" value="Hitung" onclick="hitungLuas()">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function hitungLuas() {
+            var alas = parseFloat(document.getElementById("alas").value);
+            var tinggi = parseFloat(document.getElementById("tinggi").value);
+
+            if (!isNaN(alas) && !isNaN(tinggi)) {
+                var luas = 0.5 * alas * tinggi;
+                document.getElementById("result").innerHTML = "Luas segitiga adalah: " + luas;
+            } else {
+                document.getElementById("result").innerHTML = "Masukkan alas dan tinggi segitiga.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Aritmatika</title>
+</head>
+<body>
+    <h1>Kalkulator Aritmatika</h1>
+    <p>Masukkan dua angka dan pilih operasi:</p>
+    <input type="text" id="angka1" placeholder="Angka pertama">
+    <input type="text" id="angka2" placeholder="Angka kedua">
+    <select id="operasi">
+        <option value="tambah">Penambahan (+)</option>
+        <option value="kurang">Pengurangan (-)</option>
+        <option value="kali">Perkalian (*)</option>
+        <option value="bagi">Pembagian (/)</option>
+        <option value="pangkat">Pemangkatan (^)</option>
+        <option value="modulus">Modulus (%)</option>
+    </select>
+    <button onclick="hitung()">Hitung</button>
+    <p id="hasil"></p>
+
+    <script>
+        function hitung() {
+            var angka1 = parseFloat(document.getElementById("angka1").value);
+            var angka2 = parseFloat(document.getElementById("angka2").value);
+            var operasi = document.getElementById("operasi").value;
+            var hasil = 0;
+
+            switch (operasi) {
+                case "tambah":
+                    hasil = angka1 + angka2;
+                    break;
+                case "kurang":
+                    hasil = angka1 - angka2;
+                    break;
+                case "kali":
+                    hasil = angka1 * angka2;
+                    break;
+                case "bagi":
+                    if (angka2 !== 0) {
+                        hasil = angka1 / angka2;
+                    } else {
+                        alert("Pembagian dengan nol tidak diizinkan.");
+                        return;
+                    }
+                    break;
+                case "pangkat":
+                    hasil = Math.pow(angka1, angka2);
+                    break;
+                case "modulus":
+                    if (angka2 !== 0) {
+                        hasil = angka1 % angka2;
+                    } else {
+                        alert("Modulus dengan nol tidak diizinkan.");
+                        return;
+                    }
+                    break;
+                default:
+                    alert("Operasi tidak valid.");
+                    return;
+            }
+
+            document.getElementById("hasil").textContent = "Hasil " + operasi + ": " + hasil;
+        }
+    </script>
+</body>
+</html>
